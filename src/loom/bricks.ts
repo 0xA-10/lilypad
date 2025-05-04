@@ -1,6 +1,4 @@
 import { Segment } from "../core/segments";
-import { withLLM } from "../core/executors";
-import { z } from "zod";
 
 export const bulletSummary: Segment = async (ctx) => ({
 	...ctx,
@@ -9,12 +7,15 @@ export const bulletSummary: Segment = async (ctx) => ({
 
 export const expandMindMap: Segment = async (ctx) => ({
 	...ctx,
-	prompt: `Convert these bullets into a JSON mind‑map. ` + `Keys: node (string), children (array).`,
+	prompt:
+		`Convert the following bullets into a JSON mind‑map.\n\n` +
+		`${ctx.answer}\n\n` +
+		`Return array with keys: node (string), children (array).`,
 });
 
 export const compressHaiku: Segment = async (ctx) => ({
 	...ctx,
-	prompt: `Compress that mind‑map into a single haiku (5‑7‑5). Return only text.`,
+	prompt: `Here is a mind‑map in JSON:\n${ctx.answer}\n\n` + `Compress its essence into a single haiku (5‑7‑5).`,
 });
 
 export const analogyStory: Segment = async (ctx) => ({
