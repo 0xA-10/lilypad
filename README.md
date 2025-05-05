@@ -1,5 +1,7 @@
 under construction
 
+currently working on next iteration which focuses on applying pattern strategy within the same chat session.
+
 # lilypad
 
 lilypad is an LLM prompt engine designed around functional pipelines and musically inspired patterns to allow for easy LLM orchestration and context flow management.
