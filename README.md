@@ -1,6 +1,6 @@
 under construction
 
-currently working on next iteration which focuses on applying pattern strategy within the same chat session.
+next iteration will focus on applying pattern strategy within the same chat session. Current architecture uses a fresh chat every step.
 
 # lilypad
 
