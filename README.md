@@ -14,8 +14,8 @@ Call `fresh()` to hop onto a brand-new pad (conversation).
 ```bash
 git clone <your-repo-url>
 cd lilypad
-pnpm install          # or npm/yarn install
-export OPENAI_API_KEY="sk-..."
+pnpm install
+export OPENAI_API_KEY="sk-..." # or use .env
 pnpm run demo:spend   # runs examples/spend-optimizer.ts via ts-node
 ```
 
