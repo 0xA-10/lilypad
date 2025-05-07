@@ -1,9 +1,60 @@
-under construction
-
-next iteration will focus on applying pattern strategy within the same chat session. Current architecture uses a fresh chat every step.
-
 # lilypad
 
-lilypad is an LLM prompt engine designed around functional pipelines and musically inspired patterns to allow for easy LLM orchestration and context flow management.
+Floating gracefully between prompts like pads on a pond 🌿🐸.
 
-The library is coded through ChatGPT prompting in hopes of eventually being able to generate itself.
+`lilypad` is a tiny, functional builder for chaining large‑language‑model prompt steps in Node.js/TypeScript. Currently supporting OpenAI models.
+
+`lilypad` chains prompt “pads” inside a single live Responses conversation by default.
+Call `fresh()` to hop onto a brand-new pad (conversation).
+
+---
+
+## 🚀 Quick Start
+
+```bash
+git clone <your-repo-url>
+cd lilypad
+pnpm install
+export OPENAI_API_KEY="sk-..." # or use .env
+pnpm run demo:spend   # runs examples/spend-optimizer.ts via ts-node
+```
+
+---
+
+## 🛠 Usage
+
+```ts
+import { lilypad, fresh } from "lilypad";
+import { analyzeValue, brainstormAlternatives, filterByThreshold, critiqueAndTighten } from "lilypad";
+
+const pipeline = lilypad(
+	analyzeValue,
+	brainstormAlternatives,
+	filterByThreshold(10),
+	fresh(), // ← fresh session & transcript
+	critiqueAndTighten,
+);
+
+(async () => {
+	const { data } = await pipeline.run({ spendingItem: "Gym membership" });
+	console.log(data.recommendations);
+})();
+```
+
+---
+
+## 🔧 Development Setup
+
+```bash
+# 1. Install deps
+pnpm install
+
+# 2. Build TypeScript
+pnpm run build
+
+# 3. Run tests (unit & integration with mocked Responses)
+pnpm test
+
+# 4. Demo
+pnpm run demo:spend
+```
