@@ -9,7 +9,8 @@
     "build": "tsc -p tsconfig.json",
     "prepublishOnly": "npm run build",
     "test": "vitest",
-    "demo:spend": "npx tsx examples/spend-optimizer.ts"
+    "demo:spend": "npx tsx examples/spend-optimizer.ts",
+    "demo:spend-advanced": "npx tsx examples/spend-optimizer-advanced.ts"
   },
   "keywords": [
     "lilypad",
@@ -20,10 +21,10 @@
     "responses-api"
   ],
   "author": "",
-  "license": "MIT",
   "dependencies": {
     "dotenv": "^16.5.0",
-    "node-fetch": "^3.3.1"
+    "node-fetch": "^3.3.1",
+    "string-similarity": "^4.0.4"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
