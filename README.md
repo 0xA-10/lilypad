@@ -2,10 +2,7 @@
 
 Floating gracefully between prompts like pads on a pond 🌿🐸.
 
-`lilypad` is a tiny, functional builder for chaining large‑language‑model prompt steps in TypeScript using OpenAI models.
-
-`lilypad` chains prompt “pads” inside a single live Responses conversation by default.
-Call `fresh()` to hop onto a brand-new pad (conversation).
+`lilypad` is a tiny, functional builder for chaining large‑language‑model prompt steps in TypeScript using OpenAI models. By default prompt "pads" reuse the same chat session in order to maintain context. Starting a fresh chat is as simple as calling `fresh()`.
 
 ---
 
