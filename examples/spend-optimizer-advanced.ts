@@ -21,6 +21,7 @@ import {
 	generateActions,
 	summaryExecutive,
 } from "../src/extra-steps";
+import { transformationsToMermaid } from "../src/mermaid";
 
 async function run() {
 	const pipeline = lilypad(
@@ -57,6 +58,9 @@ async function run() {
 	console.log("\n🔢 Ranked Ideas:\n", (result.data as any).ranked);
 	console.log("\n✅ Action Steps:\n", (result.data as any).actionPlanSteps.join("\n- "));
 	console.log("\n📊 Summary:\n", (result.data as any).summary);
+
+	const diagramCode = transformationsToMermaid(result.transformations);
+	console.log("```mermaid\n" + diagramCode + "\n```");
 }
 
 run();
