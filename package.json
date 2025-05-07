@@ -1,23 +1,35 @@
 {
   "name": "lilypad",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
+  "description": "Functional prompt-pipeline library for Node.js/TypeScript using OpenAI Responses API",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "npx tsx examples/spend-advisor.ts",
-    "build": "tsup src --format esm --dts",
-    "test": "echo \"(tests TBD)\""
+    "build": "tsc -p tsconfig.json",
+    "prepublishOnly": "npm run build",
+    "test": "vitest",
+    "demo:spend": "npx tsx examples/spend-optimizer.ts"
   },
+  "keywords": [
+    "lilypad",
+    "pipeline",
+    "prompts",
+    "llm",
+    "chatgpt",
+    "responses-api"
+  ],
+  "author": "",
+  "license": "MIT",
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.40.1",
     "dotenv": "^16.5.0",
-    "openai": "^4.20.0",
-    "ts-node": "^10.9.2",
-    "tsup": "^8.0.2",
-    "zod": "^3.23.8"
+    "node-fetch": "^3.3.1"
   },
   "devDependencies": {
-    "@types/node": "^20.11.9",
+    "@types/node": "^18.0.0",
+    "@types/node-fetch": "^2.6.12",
     "tsx": "^4.19.4",
-    "typescript": "^5.4.3"
+    "typescript": "^5.0.0",
+    "vitest": "^0.28.0"
   }
 }
