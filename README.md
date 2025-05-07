@@ -49,7 +49,7 @@ const pipeline = lilypad(
 # 1. Install deps
 pnpm install
 
-# 2. Build TypeScript
+# 2. Build TypeScript (optional for the demo)
 pnpm run build
 
 # 3. Run tests (unit & integration with mocked Responses)
