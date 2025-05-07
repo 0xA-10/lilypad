@@ -20,6 +20,7 @@ export type PromptStep<I, O> = (ctx: Context<I>) => Promise<Context<O>>;
 
 /**
  * Compose a sequence of PromptSteps into a single runner.
+ * Now returns both final Context and an array of per-step transformations.
  */
 export function lilypad<In>(...steps: PromptStep<any, any>[]) {
 	return {
@@ -27,10 +28,8 @@ export function lilypad<In>(...steps: PromptStep<any, any>[]) {
 			let ctx: Context<unknown> = { data: input, transcript: [], session: undefined };
 			const transformations: Transformation[] = [];
 
-      for (const step of steps) {
-        const stepName = step.name ||
-        // cheaphax get fn name
-          new Error().stack!.split('at ')[3].split(' ')[0] || "<anonymous>";
+			for (const step of steps) {
+				const stepName = step.name || "<anonymous>";
 				const inputData = ctx.data;
 				const nextCtx = await step(ctx as any);
 				const outputData = nextCtx.data;
